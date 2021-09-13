@@ -1,0 +1,7 @@
+﻿Employee No,First Name,Last Name,Photo Location,Audio Location
+201,mark,Anne,./face_recog/celebrit1.jpg,./database/audio_files/mark.mp3
+202,kemi,Adesanya,./face_recog/celebrit2.jpg,./database/audio_files/kemi.mp3
+203,nike,Alao,./face_recog/celebrit3.jpg,./database/audio_files/nike.mp3
+204,tolu,Badmus,./face_recog/celebrit4.jpg,./database/audio_files/tolu.mp3
+205,tope,Phillip,./face_recog/pic3.jpeg,./database/audio_files/tope.mp3
+206,seun,Praise,./face_recog/celebrit5.jpg,./database/audio_files/seun.mp3
