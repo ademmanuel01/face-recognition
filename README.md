@@ -1,39 +1,49 @@
 
 ## Project 1: Face Recognition Library
 
-tsExtract is a time series preprocessing library. Using sliding windows, tsExtract allows for the conversion of time series data to a form that can be fed into standard machine learning regression algorithms like Linear Regression, Decision Trees Regression as well as Deep Learning. 
+Python face-recognition library is a simple, user-friendly library with methods useful for to recognize and manipulate faces from Python. Face recognition is a branch of Artificial Intelligence technology which deals about detecting a human face in an image, recognize the identity, and more attributes of a person.
 
-![enter image description here](https://img.shields.io/badge/LICENSE-GNU_GPL-BLACK) ![enter image description here](https://img.shields.io/badge/pypi-v1.0.0-yellow)  ![enter image description here](https://anaconda.org/cydal/tsextract/badges/version.svg)  ![enter image description here](https://anaconda.org/cydal/tsextract/badges/latest_release_date.svg)  ![enter image description here](https://anaconda.org/cydal/tsextract/badges/platforms.svg)    ![enter image description here](https://anaconda.org/cydal/tsextract/badges/installer/conda.svg)  
-[![Open Source Helpers](https://www.codetriage.com/cydal/tsextract/badges/users.svg)](https://www.codetriage.com/cydal/tsextract)
-[![Downloads](https://pepy.tech/badge/tsextract)](https://pepy.tech/project/tsextract)
-[![Downloads](https://pepy.tech/badge/tsextract/month)](https://pepy.tech/project/tsextract)
-[![Downloads](https://pepy.tech/badge/tsextract/week)](https://pepy.tech/project/tsextract)
-
+ ![enter image description here](https://pypi.org/project/face-recognition/)
+ ![enter image description here](https://jupyter.org/install/) 
+ ![enter image description here](https://pypi.org/project/dlib/)  
+ ![enter image description here](https://pypi.org/project/cmake/)
+ ![enter image description here](https://pypi.org/project/opencv-python/)  
 
 
 # Installation
 
 <code> pip </code>
 
-> **pip install tsextract**
+> **pip install face-recognition**
+**pip install dlib**
+**pip install dlib**
+**pip install cmake**
+**pip install opencv-python**
 
-<code> conda </code>
-> **conda install -c cydal tsextract**
+<code> jupyter notebook </code>
+> **python -m pip install jupyter**
 
 
 
 ## Main Features
 
-* Take sliding window of data and with that, create additional columns representing the window. 
-* Perform differencing on windowed data to remove non-stationarity. 
-* Calculate statistics on windowed and differenced data. These include temporal and spectral statistics functions. 
-* Plot visualisations. These include - 
-* * Actual vs Predicted line and scatter plots
-* * Lag correlation
+* Face_locations() method detects all human faces in the image. Each face is detected as a rectangular frame in the form of a tuple (top,left,bottom,right). 
+* Detecting faces and locating the rectangular frames using HOG (Histogram Oriented Gradient) Approach. This method is faster but less accurate. 
+* Detecting faces and locating the rectangular frames using Deep Learning based Convolution Neural Network (CNN) Approach. CNN is more accurate but it takes more time to compute. 
+* Image proessing. These include - 
+* * Locate Faces and Mark with rectangle
+* * Writing text on a Face Image
+* * Face encoding
+* * Distance Function and Resemblance of Faces
+* * Face mapping
+* * Face compare
+* Image Data storage and compare using Python Pandas CSV File
+* Attendance Recording in a File
+* Image capture using opencv, Time and Date Recording, and Playing audio file from the database
 
 ## Usage
 
-### [Example Notebooks](https://github.com/cydal/tsExtract/tree/master/examples)
+### [Application] Project Work - Employee Attendance Management System(https://github.com/ademmanuel01/face-recognition/blob/master/face_recog.ipynb)
 
 ```python
 print(df.head())
