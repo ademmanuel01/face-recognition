@@ -65,8 +65,6 @@ Using the main **building_features** function
 *Dlib: is a dynamic library. This is actually a modem C++ to solve real life problem. This contains machine learning algorithms and tools for building complex software in C++ to solve real life problem. Most of the Machine Learning packages are built on Dlib*.
 
 *Open CV (opensource computer vision) This is a very popular opensource library implementing Computer Vision algorithms using Machine Learning*.
-
-![enter image description here](https://postimg.cc/3WPg0Myq/Screenshot 2021)
  
 
 
