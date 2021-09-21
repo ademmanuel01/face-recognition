@@ -3,7 +3,7 @@
 
 Python face-recognition library is a simple, user-friendly library with methods useful for to recognize and manipulate faces from Python. Face recognition is a branch of Artificial Intelligence technology which deals about detecting a human face in an image, recognize the identity, and more attributes of a person.
 
- ![enter image description here](https://img.shields.io/badge/pypi-v3.0.0-blue)
+ ![enter image description here](https://img.shields.io/badge/pypi-v3.0.0-green)
  ![enter image description here](https://img.shields.io/badge/py-jupyter-pink) 
  ![enter image description here](https://img.shields.io/badge/pip-dlib-white)  
  ![enter image description here](https://img.shields.io/badge/pip-cmake-white)
@@ -14,10 +14,10 @@ Python face-recognition library is a simple, user-friendly library with methods 
 
 <code> pip </code>
 
-> **pip install face-recognition**
-**pip install dlib**
-**pip install dlib**
-**pip install cmake**
+> **pip install face-recognitionn/**
+**pip install dlibn/**
+**pip install dlibn/**
+**pip install cmaken/**
 **pip install opencv-python**
 
 <code> jupyter notebook </code>
