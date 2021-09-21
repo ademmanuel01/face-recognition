@@ -14,11 +14,11 @@ Python face-recognition library is a simple, user-friendly library with methods 
 
 <code> pip </code>
 
-> **pip install face-recognitionn/**
-**pip install dlibn/**
-**pip install dlibn/**
-**pip install cmaken/**
-**pip install opencv-python**
+> **pip install face-recognition**
+> **pip install dlib**
+> **pip install dlib**
+> **pip install cmake**
+> **pip install opencv-python**
 
 <code> jupyter notebook </code>
 > **python -m pip install jupyter**
@@ -43,128 +43,96 @@ Python face-recognition library is a simple, user-friendly library with methods 
 
 ## Usage
 
-### [Application] Project Work - Employee Attendance Management System(https://github.com/ademmanuel01/face-recognition/blob/master/face_recog.ipynb)
+### [Application] Project Work - Employee Attendance Management System
+##### (https://github.com/ademmanuel01/face-recognition/blob/master/face_recog.ipynb)
+
+
+
+Using the main **building_features** function
+
+**building_features** - 
+* **CMake**
+* **Dlib**
+* **Open CV**
+*CMake: CMake is a cross-platform free an open source software tool. This is used to manage the software building process using compiler independent method*.
+
+*Dlib: is a dynamic library. This is actually a modem C++ to solve real life problem. This contains machine learning algorithms and tools for building complex software in C++ to solve real life problem. Most of the Machine Learning packages are built on Dlib*
+
+*Open CV (opensource computer vision) This is a very popular opensource library implementing Computer Vision algorithms using Machine Learning*.
+
+![enter image description here](https://postimg.cc/3WPg0Myq/Screenshot 2021)
+ 
+
+
+### Project Work - Employee Attendance Management System
+In this project work, I develop an end-to-end attendance management system that uses Face Recognition.
+
+The following are the key modules:
+* Reference Data load Module
+* Face Capture and Store temporarily
+* Face Recognition
+* Attendance Record Module
+* Display Attendance Module
+* Announce Attendance Module
+
+* **Reference Database**: When employees are recruited and join duty as a new employee, the company records the following and store them in the reference database.
+1. Employee Number
+2. First Name of Employee
+3. Last Name of Employee
+4. For every employee, his photo is stored, and the location of the photo file is saved as a string.
+5. When Attendance is recorded, it will announce the name of the employee. The audio, announcing the name of the employee is stored, and the location of the photo file is saved as a string. 
+I stored these employee data in a CSV file.
+
+* **Face Capture Module**: When the employee poses in front of the camera, it captures the image of the face. As the image capture happens continuously, I capture the image frames continuously for 10 frames and then choose the middle one 5th frame. The approach is as follows:
+1. Get the camera ready
+2. Capture 10 frames continuously one after the other and store each of the 10 frames in the local disk with file names employee 0, employee 1, employee 2………, employee 9, in .jpeg format.
+3. Load employee5.jpeg as ukwn (for unknown)
+4. Proceed to Face Recognition to recognize the image ukwn
+
+
+* **Face Recognition Module**: Now we have the following:
+1. Face encodings of all the employees of the company in the form of a Python list emp_encod[]
+2. Encodings of captured image ukwn: The photo of the employee who posed in front of the camera is captured in a Python variable ukwn. This photo must be first encoded as ukwn_encode
+3. Note: A word of caution. As ukwn is an image captured in the camera, it is possible that the quality is poor. In such a case the face in the image may not be visible and encodings cannot be computed. So, it is recommended that we give the encodings command be given in a try: except clause hence the Exception is created, printed, and exit. 
+
+* **Record Attendance (in a Datafile) Module**: The attendance in a data file in text format is recorded. The name of the file is Attendance.txt. The attendance is recorded in a single line with four fields as one string as follows:
+1.Emp No | 2. First Name | 3.Last Name | 4.Data time stamp. 
+
+* **Display Attendance Recorded Module**: After recognizing the face, then display the name of the person. On the image captured in the camera, the employee's name to be written and displayed. If the face is not recognized, it will display "Face NOT Recognized"
+
+* **Announce (audio) Module**: The audio file announcing the name of the person is loaded as an audio file and the path is given in the Python array audiolocation[]. If i is the index, it must play audiolocation[i].
 
 ```python
-print(df.head())
+from PIL import Image, ImageDraw, ImageFont
+import face_recognition
+import cv2
+import sys
+import pandas as pd
+import datetime
+import pygame
+
+emp.append(face_recognition.load_image_file(photolocation[i]))
+emp_encod.append(face_recognition.face_encodings(emp[i])[0]) 
+cv2.imwrite('Employee'+str(i)+'.png', image)
+pygame.mixer.music.load(audioloc)
+pygame.mixer.music.play()
+    
 ```
-
-
-|                |Date                          |DAYTON_MW                         |
-|----------------|-------------------------------|-----------------------------|
-| |`2004-12-31 01:00:00`            |`1596.0`            |
-|          |`2004-12-31 02:00:00` | `1517.0` |
-|          |`2004-12-31 03:00:00`|`1486.0`|
-| | `2004-12-31 04:00:00`|`1469.0` |
-| |`2004-12-31 05:00:00` | `1472.0` |
-
-
-
-Using the main **build_features** function
-
-
-**build_features** takes in 4 arguments - 
-* **Data**: Time series data in 1d. 
-
-* **Request Dictionary**: Dictionary with the function type and parameters
-* **Include_tzero** (optional) - This gives the option on whether to include the column t+0. Can be quite handy when implementing difference networks. 
-* **target_lag** - Sets lag value. If predicting 10 hours into the future, then a value of 10 should be included. Default is 3. 
-
-```python
-from tsextract.feature_extraction.extract import build_features
-
-features_request = {
-    "window":[10]
-}
-
-features = build_features(df["DAYTON_MW"], features_request, include_tzero=False)
-```
-
-The example above sends in a request for a sliding window size of 10. What is returned is a dataframe with 10 columns equal to the window size passed in. The final column is the target column with values shifted 3 time steps in the future. 
-
-
-![enter image description here](https://i.postimg.cc/SRQTtbnH/Screenshot-2020-11-11-at-00-12-11.png)
-
-
-### Features
-
-* **window**: Takes sliding window of the data. Parameter(s) passed in as a list. A single value will take a sliding window corresponding to that value. A parameter of 10 will take windows from 1 to 10. If [5, 10] is passed in instead, then a window of 5 to 10 time steps will be taken instead. 
-
-* **window_statistic**: This performs windowing like above, but then applies specified statistic operation to reduce matrix to a vector of 1d. 
-
-* **difference/momentum/force**: Performs differencing by subtracting from the value in the present time step, the value in the previous time step. The parameter expected is a list of size 2 or 3. Just like in windowing, the first value refers to the window size. Two windowing values may also be passed in for windows in that range. 
-The final value is the lag, this refers to the differencing lag for subtraction. A difference lag of 1 means values are subtracted from immediate past values (t3-t2, t2-t1, t1-t0 e.t.c) while a difference lag of 3 will subtract from 3 time steps before (t6-t3, t5-t2, t4-t1 e.t.c).
-Momentum & Force are 2nd & 3rd order differences. 
-
-* **difference_statistic/momentum_statistic/force_statistic**: Similarly, this performs the operations described above, but then applies the specified statistic. 
-
-```python
-from tsextract.feature_extraction.extract import build_features
-from tsextract.domain.statistics import median, mean, skew, kurtosis
-from tsextract.domain.temporal import abs_energy
-
-features_request = {
-    "window":[2], 
-    "window_statistic":[24, median], 
-    "difference":[12, 10],
-    "difference_statistic":[15, 10, abs_energy], 
-}
-
-features = build_features(df["DAYTON_MW"], features_request, include_tzero=True, target_lag=3)
-```
-
-![enter image description here](https://i.postimg.cc/VvVhrsgm/Screenshot-2020-11-11-at-01-00-16.png)
-
-# Summary Statistics
-
-
-As described above, rather than take raw windowing or differencing matrix values, it is possible to take some summary statistic of it. See supported features. 
-
-
-| Statistics      | Temporal | Spectral   |
-| :---        |    :----:   |          ---: |
-| Mean      | Absolute Energy       | Spectral Centroid   |
-| Median   | AUC        |      |
-| Range   | Mean Absolute Difference        |       |
-| Standard Deviation   | Moment        |      |
-| Minimum   | Autocorrelation        |     |
-| Maximum   | Zero Crossing Rate         |   |
-| Range   |         |      |
-| Variance   |         |     |
-| Kurtosis   |         |    |
-| Skew   |         |     |
-| IQR   |         |     |
-| MAE   |         |     |
-| RMSE   |         |     |
-
-
 
 
 ## Dependencies
 
-* pandas >= 1.0.3
-* seaborn >= 0.10.1
-* statsmodels >= 0.11.1
-* scipy >= 1.5.0
-* matplotlib >= 3.2.1
-* numpy >= 1.16.4
-
-
-## License
-
-[GNU GPL V3](http://www.gnu.org/licenses/quick-guide-gplv3.html)
-
-
-# Contribute
-
-Contributors of all experience levels are welcome. Please see the contributing guide. 
-
-## Article
-https://sijpapi.medium.com/preprocessing-time-series-data-for-supervised-learning-2e27493f44ae
+* face_recognition
+* pandas 
+* datetime 
+* pygame
+* opencv
+* PIL
+* numpy 
 
 
 ### Source Code
 
 <code> You can get the latest source code </code>
 
-> git clone https://github.com/cydal/tsExtract.git 
+> git clone https://github.com/ademmanuel01/face-recognition/blob/master/face_recog.ipynb 
