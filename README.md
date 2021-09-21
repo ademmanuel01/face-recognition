@@ -14,10 +14,14 @@ Python face-recognition library is a simple, user-friendly library with methods 
 
 <code> pip </code>
 
-> **pip install face-recognition**
-> **pip install dlib**
-> **pip install dlib**
-> **pip install cmake**
+> **pip install face-recognition**,
+
+> **pip install dlib**,
+
+> **pip install dlib**,
+
+> **pip install cmake**,
+
 > **pip install opencv-python**
 
 <code> jupyter notebook </code>
@@ -31,12 +35,12 @@ Python face-recognition library is a simple, user-friendly library with methods 
 * Detecting faces and locating the rectangular frames using HOG (Histogram Oriented Gradient) Approach. This method is faster but less accurate. 
 * Detecting faces and locating the rectangular frames using Deep Learning based Convolution Neural Network (CNN) Approach. CNN is more accurate but it takes more time to compute. 
 * Image proessing. These include - 
-* * Locate Faces and Mark with rectangle
-* * Writing text on a Face Image
-* * Face encoding
-* * Distance Function and Resemblance of Faces
-* * Face mapping
-* * Face compare
+  * Locate Faces and Mark with rectangle
+  * Writing text on a Face Image
+  * Face encoding
+  * Distance Function and Resemblance of Faces
+  * Face mapping
+  * Face compare
 * Image Data storage and compare using Python Pandas CSV File
 * Attendance Recording in a File
 * Image capture using opencv, Time and Date Recording, and Playing audio file from the database
@@ -50,13 +54,15 @@ Python face-recognition library is a simple, user-friendly library with methods 
 
 Using the main **building_features** function
 
-**building_features** - 
+**building_features**  
 * **CMake**
 * **Dlib**
-* **Open CV**
+* **Open CV**.
+
+
 *CMake: CMake is a cross-platform free an open source software tool. This is used to manage the software building process using compiler independent method*.
 
-*Dlib: is a dynamic library. This is actually a modem C++ to solve real life problem. This contains machine learning algorithms and tools for building complex software in C++ to solve real life problem. Most of the Machine Learning packages are built on Dlib*
+*Dlib: is a dynamic library. This is actually a modem C++ to solve real life problem. This contains machine learning algorithms and tools for building complex software in C++ to solve real life problem. Most of the Machine Learning packages are built on Dlib*.
 
 *Open CV (opensource computer vision) This is a very popular opensource library implementing Computer Vision algorithms using Machine Learning*.
 
