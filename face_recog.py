@@ -889,28 +889,4 @@ else:
     pygame.mixer.music.play()
     pygame.mixer.music.queue("./database/audio_files/success.mp3")
     pygame.mixer.music.play()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
+    
